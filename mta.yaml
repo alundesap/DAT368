@@ -9,34 +9,53 @@ modules:
    requires:
     - name: dat368-hdi
 
-
  - name: web
    type: html5
    path: web
    requires:
     - name: dat368-uaa
-
-
- 
-
+    - name: xsjs_api
+      group: destinations
+      properties:
+        name: xsjs_be
+        url: ~{url}
+        forwardAuthToken: true
+    - name: python_api
+      group: destinations
+      properties:
+        name: python_be
+        url: ~{url}
+        forwardAuthToken: true
 
  - name: xsjs
    type: nodejs
    path: xsjs
+   requires:
+    - name: dat368-hdi
    provides:
     - name: xsjs_api
       properties:
          url: ${default-url}
 
+### Python Module Block Begin vvv
+ - name: python
+   type: python
+   path: python
+   requires:
+    - name: dat368-uaa
+    - name: dat368-hdi
+   provides:
+    - name: python_api
+      properties:
+         url: ${default-url}
+### Python Module Block End ^^^
+
 resources:
  - name: dat368-hdi
-   parameters:
-      config:
-         schema: DAT368
+   type: com.sap.xs.hdi-container
    properties:
       hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
  - name: dat368-uaa
+   type: com.sap.xs.uaa
    parameters:
       path: ./xs-security.json
-   type: com.sap.xs.uaa
