@@ -2,3 +2,4 @@
 .mta/
 target/
 node_modules/
+mtad.yaml

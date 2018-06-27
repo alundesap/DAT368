@@ -16,6 +16,18 @@ modules:
    requires:
     - name: dat368-uaa
 
+
+ 
+
+
+ - name: xsjs
+   type: nodejs
+   path: xsjs
+   provides:
+    - name: xsjs_api
+      properties:
+         url: ${default-url}
+
 resources:
  - name: dat368-hdi
    parameters:
