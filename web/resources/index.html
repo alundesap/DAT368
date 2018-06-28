@@ -15,6 +15,9 @@
 <a href="python/test">python/test</a> Provided by the Python module, Unauthorized Test.<br />
 <a href="python/db_only">python/db_only</a> Provided by the Python module, Unauthorized DB Test.<br />
 <a href="auth_python/db_valid">auth_python/db_valid</a> Provided by the Python module, Authorized DB with request validation.<br />
+<p>Authorization troubleshooting hint:</p><br />
+<p>Browse to this URL and inspect the authorities to confirm the user has the expected roles.</p>
+<p>api=$(xs api | grep endpoint | tr -s ' ' | cut -d ' ' -f 3) ; apiinfo=$(echo -n $api"/v2/info") ; echo $apiinfo ; uaa=$(curl -k -s $apiinfo | tr "," "\n" | grep authorizationEndpoint | cut -d '"' -f 4) ; cnfwho=$(echo -n $uaa"/config?action=who") ; echo $cnfwho</p>
 
 </body>
 </html>
