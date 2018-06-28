@@ -109,7 +109,7 @@ def unauth_db_only():
 #    # Prep a cursor for SQL execution
     cursor = connection.cursor()
 #    # Form an SQL statement to retrieve some data
-    cursor.execute('SELECT "tempId", "tempVal", "ts", "created" FROM "' + schema + '"."DAT3_010.db.data::sensors.temp"')
+    cursor.execute('SELECT "tempId", "tempVal", "ts", "created" FROM "' + schema + '"."DAT368.db.data::sensors.temp"')
 #    # Execute the SQL and capture the result set
     sensor_vals = cursor.fetchall()
 #
@@ -249,7 +249,7 @@ def auth_db_valid():
 #    # Prep a cursor for SQL execution
     cursor = connection.cursor()
 #    # Form an SQL statement to retrieve some data
-    cursor.execute('SELECT "tempId", "tempVal", "ts", "created" FROM "' + schema + '"."DAT3_010.db.data::sensors.temp"')
+    cursor.execute('SELECT "tempId", "tempVal", "ts", "created" FROM "' + schema + '"."DAT368.db.data::sensors.temp"')
 #    # Execute the SQL and capture the result set
     sensor_vals = cursor.fetchall()
 #
